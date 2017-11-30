@@ -20,6 +20,15 @@ class ITRegisterViewController: UIViewController {
 
         setupUI()
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    @objc fileprivate func backButtonClick(){
+        let vc = ITStartViewController()
+        self.present(vc, animated: true, completion: nil)
+    }
     
     private func setupUI(){
         self.view.addSubview(v1)
@@ -36,6 +45,8 @@ class ITRegisterViewController: UIViewController {
         self.view.addSubview(verificationTextFile)
         self.view.addSubview(verificationButton)
         self.view.addSubview(nextButton)
+        
+        backButton.addTarget(self, action: #selector(backButtonClick), for: .touchUpInside)
         
         //返回按钮
         backButton.snp.makeConstraints { (make) in
@@ -186,8 +197,14 @@ class ITRegisterViewController: UIViewController {
     //验证码框
     lazy var verificationTextFile : UITextField = {
        let verificationTextFile = UITextField()
-            verificationTextFile.attributedPlaceholder = NSAttributedString.init(string: "          ",attributes: [NSAttributedStringKey.foregroundColor:UIColor.white.withAlphaComponent(0.5)])
-            verificationTextFile.textAlignment = .left
+        
+        verificationTextFile.attributedPlaceholder = NSAttributedString.init(string: "          ",attributes:
+                [NSAttributedStringKey.foregroundColor:UIColor.white.withAlphaComponent(0.5)])
+        
+        verificationTextFile.textAlignment = .left
+        
+        verificationTextFile.keyboardType = UIKeyboardType.numberPad
+        
         return verificationTextFile
     }()
     
@@ -198,6 +215,7 @@ class ITRegisterViewController: UIViewController {
         verificationButton.setTitleColor(UIColor.white, for: .normal)
 
         verificationButton.setTitle("验证码", for: .normal)
+        
         
         return verificationButton
     }()
@@ -212,9 +230,14 @@ class ITRegisterViewController: UIViewController {
         
         accountNumber.borderStyle = UITextBorderStyle.none
         
+        accountNumber.keyboardType = .numberPad
+        
+        accountNumber.clearButtonMode = .whileEditing
+        
         return accountNumber
     }()
     
+    ///密码框
     lazy var password : UITextField = {
        let password = UITextField()
         
@@ -223,6 +246,10 @@ class ITRegisterViewController: UIViewController {
         password.attributedPlaceholder = NSAttributedString.init(string: "设置密码",attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize:20)])
         
         password.borderStyle = UITextBorderStyle.none
+        
+        password.isSecureTextEntry = true
+        
+        password.clearButtonMode = .whileEditing
         
         return password
         
