@@ -15,6 +15,8 @@ class ITRegisterViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = ITBackgroundColor()
+        
+        print("2222")
 
         setupUI()
     }
