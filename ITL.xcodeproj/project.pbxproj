@@ -15,6 +15,7 @@
 		D8D4C7531FCE958B00F410D4 /* ITConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4C7511FCE958B00F410D4 /* ITConst.swift */; };
 		D8D4C7561FCE95A800F410D4 /* ITStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4C7551FCE95A800F410D4 /* ITStartViewController.swift */; };
 		D8D4C75A1FCE960300F410D4 /* ITRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D4C7591FCE960300F410D4 /* ITRegisterViewController.swift */; };
+		D8F79A541FCFDFB300C03826 /* ITLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F79A531FCFDFB300C03826 /* ITLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D8D4C7511FCE958B00F410D4 /* ITConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITConst.swift; sourceTree = "<group>"; };
 		D8D4C7551FCE95A800F410D4 /* ITStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITStartViewController.swift; sourceTree = "<group>"; };
 		D8D4C7591FCE960300F410D4 /* ITRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITRegisterViewController.swift; sourceTree = "<group>"; };
+		D8F79A531FCFDFB300C03826 /* ITLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITLoginViewController.swift; sourceTree = "<group>"; };
 		E96F958D1B6EE2BC4A9BBAEC /* Pods-ITL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITL/Pods-ITL.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 		D8D4C74C1FCE958B00F410D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8F79A521FCFDFA700C03826 /* Login(登录) */,
 				D8D4C7581FCE95E900F410D4 /* Register(注册) */,
 				D8D4C7541FCE95A800F410D4 /* Start(启动页) */,
 			);
@@ -154,6 +157,14 @@
 				D8D4C7591FCE960300F410D4 /* ITRegisterViewController.swift */,
 			);
 			path = "Register(注册)";
+			sourceTree = "<group>";
+		};
+		D8F79A521FCFDFA700C03826 /* Login(登录) */ = {
+			isa = PBXGroup;
+			children = (
+				D8F79A531FCFDFB300C03826 /* ITLoginViewController.swift */,
+			);
+			path = "Login(登录)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D4C7531FCE958B00F410D4 /* ITConst.swift in Sources */,
+				D8F79A541FCFDFB300C03826 /* ITLoginViewController.swift in Sources */,
 				D8D4C7361FCE564800F410D4 /* AppDelegate.swift in Sources */,
 				D8D4C75A1FCE960300F410D4 /* ITRegisterViewController.swift in Sources */,
 				D8D4C7561FCE95A800F410D4 /* ITStartViewController.swift in Sources */,

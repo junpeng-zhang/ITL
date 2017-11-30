@@ -31,6 +31,7 @@ class ITStartViewController: UIViewController {
         self.view.addSubview(loginButton)
         
         registerButton.addTarget(self, action:#selector(registerAction), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         
         //设置位置
         iconImageView.snp.makeConstraints { (make) in
@@ -71,9 +72,12 @@ class ITStartViewController: UIViewController {
     
    @objc func registerAction(){
         let register = ITRegisterViewController()
-//        navigationController?.pushViewController(register, animated: true)
         self.present(register, animated: true, completion: nil)
-        print("11111")
+    }
+    
+    @objc func loginAction(){
+        let vc = ITLoginViewController()
+        self.present(vc, animated: true, completion: nil)
     }
     
     lazy var iconImageView : UIImageView = {
