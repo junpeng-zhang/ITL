@@ -16,7 +16,7 @@ class ITRegisterViewController: UIViewController {
         
         view.backgroundColor = ITBackgroundColor()
         
-        print("2222")
+        
 
         setupUI()
     }
@@ -35,6 +35,7 @@ class ITRegisterViewController: UIViewController {
         self.view.addSubview(password)
         self.view.addSubview(verificationTextFile)
         self.view.addSubview(verificationButton)
+        self.view.addSubview(nextButton)
         
         //返回按钮
         backButton.snp.makeConstraints { (make) in
@@ -115,8 +116,21 @@ class ITRegisterViewController: UIViewController {
 //        验证码框
         verificationTextFile.snp.makeConstraints { (make) in
             make.bottom.equalTo(v3.snp.top).offset(-10)
-            make.left.equalTo(verificationLogo.snp.left).offset(55)
-//            make.width.equalTo(40)
+            make.left.equalTo(verificationLogo.snp.left).offset(35)
+            make.width.equalTo(80)
+        }
+        
+        verificationButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(v3.snp.top).offset(-10)
+            make.size.equalTo(CGSize(width: 90, height: 24))
+            make.left.equalTo(verificationLogo.snp.right).offset(150)
+            
+        }
+        
+        nextButton.snp.makeConstraints { (make) in
+            make.top.equalTo(v3.snp.bottom).offset(42)
+            make.centerX.equalTo(view)
+            
         }
 
         
@@ -172,17 +186,18 @@ class ITRegisterViewController: UIViewController {
     //验证码框
     lazy var verificationTextFile : UITextField = {
        let verificationTextFile = UITextField()
-           verificationTextFile.borderStyle = UITextBorderStyle.none
-        
+            verificationTextFile.attributedPlaceholder = NSAttributedString.init(string: "          ",attributes: [NSAttributedStringKey.foregroundColor:UIColor.white.withAlphaComponent(0.5)])
+            verificationTextFile.textAlignment = .left
         return verificationTextFile
     }()
     
     //验证码按钮
     lazy var verificationButton : UIButton = {
         let verificationButton = UIButton()
-        verificationButton.setBackgroundImage(#imageLiteral(resourceName: "registered_button_default"), for: .normal)
-        verificationButton.setTitleColor(ITBackgroundColor(), for: .normal)
-        verificationButton.setTitle("立即注册", for: .normal)
+        verificationButton.setBackgroundImage(#imageLiteral(resourceName: "registered_verification_code_default2"), for: .normal)
+        verificationButton.setTitleColor(UIColor.white, for: .normal)
+
+        verificationButton.setTitle("验证码", for: .normal)
         
         return verificationButton
     }()
@@ -211,6 +226,16 @@ class ITRegisterViewController: UIViewController {
         
         return password
         
+    }()
+    
+    //下一步按钮
+    lazy var nextButton : UIButton = {
+       let nextButton = UIButton()
+        nextButton.setTitle("下一步", for: .normal)
+        nextButton.setBackgroundImage(#imageLiteral(resourceName: "registered_button_default"), for: .normal)
+        nextButton.setTitleColor(ITBackgroundColor(), for: .normal)
+        
+        return nextButton
     }()
     
     //分割线
